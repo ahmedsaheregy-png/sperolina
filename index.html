@@ -45,6 +45,12 @@
                     <li><a href="#spirulina">الاسبيرولينا</a></li>
                     <li><a href="#ganoderma">الجانوديرما</a></li>
                     <li><a href="#contact" class="btn-nav">اتصل بنا</a></li>
+                    <li class="cart-item">
+                        <a href="#" id="cart-btn">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span id="cart-count" class="badge">0</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <div class="menu-toggle"><i class="fas fa-bars"></i></div>
@@ -79,6 +85,14 @@
                     <h3>الغذاء السوبر (Super Food)</h3>
                     <p>الاسبيرولينا هي طحالب خضراء مزرقة تعتبر من أغنى المصادر الغذائية الطبيعية. تحتوي على بروتينات،
                         فيتامينات، ومعادن أساسية يحتاجها الجسم.</p>
+
+                    <div class="product-price">
+                        <span class="currency">150</span> <span class="symbol">ر.س</span>
+                    </div>
+                    <button class="btn btn-primary add-to-cart-btn" data-id="1" data-name="اسبيرولينا DXN (500 قرص)"
+                        data-price="150" data-img="products.png">
+                        <i class="fas fa-cart-plus"></i> أضف للسلة
+                    </button>
                     <ul class="benefits-list">
                         <li><i class="fas fa-check-circle"></i> تعزيز أداء جهاز المناعة ومقاومة الأمراض.</li>
                         <li><i class="fas fa-check-circle"></i> تنظيف الجسم من السموم (Detox).</li>
@@ -134,6 +148,14 @@
                     <h3>ملك الأعشاب (King of Herbs)</h3>
                     <p>فطر الريشي أو الجانوديرما هو فطر طبي معروف بخصائصه العلاجية القوية منذ آلاف السنين. يساعد في
                         إعادة التوازن لوظائف الجسم.</p>
+
+                    <div class="product-price">
+                        <span class="currency">180</span> <span class="symbol">ر.س</span>
+                    </div>
+                    <button class="btn btn-primary add-to-cart-btn" data-id="2" data-name="فطر ريشي (جانوديرما)"
+                        data-price="180" data-img="ganoderma.png">
+                        <i class="fas fa-cart-plus"></i> أضف للسلة
+                    </button>
                     <ul class="benefits-list">
                         <li><i class="fas fa-check-circle"></i> تحسين الدورة الدموية وصحة القلب.</li>
                         <li><i class="fas fa-check-circle"></i> ضبط مستويات السكر وضغط الدم.</li>
@@ -220,6 +242,66 @@
     <a href="https://wa.me/905376744337" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- Cart Sidebar/Modal -->
+    <div class="cart-overlay" id="cart-overlay">
+        <div class="cart-modal">
+            <div class="cart-header">
+                <h3>سلة المشتريات</h3>
+                <span class="close-cart"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be injected here -->
+                <p class="empty-cart-msg">السلة فارغة حالياً</p>
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>المجموع:</span>
+                    <span id="cart-total-price">0 ر.س</span>
+                </div>
+                <button class="btn btn-primary btn-block checkout-btn" id="checkout-btn">إتمام الطلب</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="checkout-modal-overlay" id="checkout-modal">
+        <div class="checkout-container">
+            <div class="checkout-header">
+                <h3>بيانات الشحن والدفع</h3>
+                <span class="close-checkout"><i class="fas fa-times"></i></span>
+            </div>
+            <div class="checkout-body">
+                <form id="checkout-form">
+                    <div class="form-group">
+                        <label>الاسم الكامل</label>
+                        <input type="text" id="customer-name" required placeholder="أدخل اسمك">
+                    </div>
+                    <div class="form-group">
+                        <label>رقم الجوال</label>
+                        <input type="tel" id="customer-phone" required placeholder="05xxxxxxxx">
+                    </div>
+                    <div class="form-group">
+                        <label>العنوان بالتفصيل</label>
+                        <textarea id="customer-address" required placeholder="المدينة، الحي، الشارع..."></textarea>
+                    </div>
+
+                    <div class="checkout-summary">
+                        <h4>ملخص الطلب</h4>
+                        <div id="checkout-items-summary"></div>
+                        <div class="total-row">
+                            <strong>الإجمالي النهائي:</strong>
+                            <strong id="final-total">0 ر.س</strong>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-block pay-btn">
+                        <i class="fas fa-credit-card"></i> دفع وتأكيد الطلب
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
